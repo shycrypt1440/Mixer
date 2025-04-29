@@ -28,4 +28,4 @@ jobs:
         with:
           fullCoverageDiff: false
           afterSwitchCommand: "npm ci"
-          delta: 0.5
+          delta: 0.1
