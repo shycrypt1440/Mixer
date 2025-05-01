@@ -9,6 +9,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     name: Test diff
+
+    permissions:
+      checks: write
+      
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
