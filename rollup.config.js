@@ -16,6 +16,7 @@ export default {
     format: 'cjs',
     exports: 'default',
   },
+  external: ['obsidian'],
   plugins: [
     typescript({ tsconfig }),
     nodeResolve(),
