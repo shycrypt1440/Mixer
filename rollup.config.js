@@ -10,7 +10,7 @@ export default {
   input: 'src/main.ts',
   treeshake: false,
   output: {
-    dir: 'dist/Mixer',
+    dir: 'dist/mixer',
     sourcemap: isProd ? false : 'inline',
     sourcemapExcludeSources: isProd,
     format: 'cjs',
