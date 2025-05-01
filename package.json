@@ -1,11 +1,11 @@
 {
-  "name": "Mixer",
-  "version": "0.1",
+  "name": "mixer",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/shycrypt1440/Mixer"
   },
-  "main": "./dist/Mixer/main.js",
+  "main": "./dist/mixer/main.js",
   "scripts": {
     "bundle": "rollup --bundleConfigAsCjs -c rollup.config.js",
     "build": "run-s lint build:fast",
