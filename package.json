@@ -10,6 +10,7 @@
     "bundle": "rollup --bundleConfigAsCjs -c rollup.config.js",
     "build": "run-s lint build:fast",
     "build:fast": "run-s bundle",
+    "build:watch": "onchange 'src/**/*.ts' -- npm run build:fast",
     "ci": "BUILD=production run-s lint test bundle",
     "lint": "eslint '*/**/*.{js,ts}'",
     "test": "jest"
