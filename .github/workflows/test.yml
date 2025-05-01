@@ -8,10 +8,11 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    name: Test diff
-
     permissions:
       pull-requests: write
+      checks: write
+      issues: write
+    name: Test diff
       
     steps:
       - name: Checkout source
