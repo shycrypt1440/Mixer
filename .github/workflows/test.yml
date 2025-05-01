@@ -8,10 +8,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-      checks: write
-      issues: write
+    permissions: read-all|write-all
     name: Test diff
       
     steps:
