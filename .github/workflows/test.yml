@@ -3,10 +3,11 @@ on:
   pull_request:
     branches: [ master ]
 
+permissions: write-all
+
 jobs:
   test:
     runs-on: ubuntu-latest
-    permissions: write-all
     name: Test diff
       
     steps:
