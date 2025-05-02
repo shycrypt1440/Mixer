@@ -25,7 +25,7 @@ jobs:
       - name: Diff PR test coverage vs default branch
         id: testCoverageDiff
         env:
-          GITHUB_TOKEN: ${{ secrets.DIFF_ACTION_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DIFF_ACTION_TOKEN2 }}
         if: ${{ github.event_name == 'pull_request' }}
         uses: anuraag016/Jest-Coverage-Diff@V1.4
         with:
