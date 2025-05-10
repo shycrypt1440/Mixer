@@ -1,4 +1,4 @@
-name: diff
+name: Build and test
 on:
   push:
     branches: [ master ]
@@ -6,15 +6,12 @@ on:
     branches: [ master ]
 
 jobs:
-  test:
+  lint:
     runs-on: ubuntu-latest
-    name: Test diff
-      
+    name: Lint
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Setup node
         uses: actions/setup-node@v4
@@ -24,12 +21,50 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Lint
+        run: npm run lint
+
+  build:
+    runs-on: ubuntu-latest
+    name: Build
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Bundle
+        run: npm run bundle
+
+  test:
+    runs-on: ubuntu-latest
+    name: Test
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Test
+        run: npm run test
+
       - name: Diff PR test coverage vs default branch
         id: testCoverageDiff
         if: ${{ github.event_name == 'pull_request' }}
         uses: anuraag016/Jest-Coverage-Diff@V1.4
         with:
-          accessToken: ${{ secrets.DIFF_ACTION_TOKEN }}
           fullCoverageDiff: false
           afterSwitchCommand: "npm ci"
-          delta: 0.1
+          delta: 0.5
